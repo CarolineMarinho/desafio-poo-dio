@@ -1,4 +1,6 @@
+import br.com.dio.desafio.dominio.Bootcamp;
 import br.com.dio.desafio.dominio.Curso;
+import br.com.dio.desafio.dominio.Dev;
 import br.com.dio.desafio.dominio.Mentoria;
 
 import java.time.LocalDate;
@@ -22,9 +24,46 @@ public class Main {
        mentoria.setDescricao("Descrição mentoria java");
        mentoria.setData(LocalDate.now());
 
+       /*System.out.println(curso1);
+       System.out.println(curso2);*/
+
+       Bootcamp bootcamp = new Bootcamp();
+       bootcamp.setNome("Bootcamp Java Developer");
+       bootcamp.setDescricao("Descrição Bootcamp Java Developer");
+       bootcamp.getConteudos().add(curso1);
+       bootcamp.getConteudos().add(curso2);
+       bootcamp.getConteudos().add(mentoria);
 
 
-       System.out.println(curso1);
-       System.out.println(curso2);
+       Dev devCaroline = new Dev();
+       devCaroline.setNome("Caroline");
+       devCaroline.inscreverBootcamp(bootcamp);
+       System.out.println("Canteúdos inscritos Caroline" + devCaroline.getConteudosInscritos());
+
+       devCaroline.progredir();
+       devCaroline.progredir();
+       System.out.println("--");
+
+       System.out.println("Canteúdos inscritos Caroline" + devCaroline.getConteudosInscritos());
+       System.out.println("Canteúdos concluidos Caroline" + devCaroline.getConteudosConcluidos());
+       System.out.println("XP:" + devCaroline.calcularTotalXP());
+
+       System.out.println("-------------");
+
+       Dev devMatheus = new Dev();
+       devMatheus.setNome("Matheus");
+       devMatheus.inscreverBootcamp(bootcamp);
+       System.out.println("Canteúdos inscritos Matheus" + devMatheus.getConteudosInscritos());
+
+       devMatheus.progredir();
+       devMatheus.progredir();
+       devMatheus.progredir();
+       System.out.println("--");
+
+       System.out.println("Canteúdos inscritos Matheus" + devMatheus.getConteudosInscritos());
+       System.out.println("Canteúdos concluidos Matheus" + devMatheus.getConteudosConcluidos());
+       System.out.println("XP:" + devMatheus.calcularTotalXP());
+
+
     }
 }
